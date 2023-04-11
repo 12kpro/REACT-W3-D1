@@ -20,8 +20,6 @@ const Job = ({ data }) => {
               isInFavourites
                 ? dispatch(removeFromFavouritesAction(data.company_name))
                 : dispatch(addToFavouritesAction(data.company_name));
-              //? dispatch({ type: "REMOVE_FROM_FAVOURITES", payload: data.company_name })
-              //: dispatch({ type: "ADD_TO_FAVOURITES", payload: data.company_name });
             }}
           >
             <svg
