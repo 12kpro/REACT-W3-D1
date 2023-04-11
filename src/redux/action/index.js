@@ -14,8 +14,8 @@ export const addJobsAction = (query, limit) => {
     try {
       let resp = await fetch(`${BASE_URL_JOBS}${query}&limit=${limit}`);
       if (resp.ok) {
-        let fetchedJobs = await resp.json();
-        dispatch({ type: ADD_JOBS, payload: fetchedJobs.data });
+        let { data } = await resp.json(); //destrutturazione per prendere direttamente data dal risultato della fetch
+        dispatch({ type: ADD_JOBS, payload: data });
       } else {
         console.log("error");
       }
@@ -31,8 +31,8 @@ export const addCompanyJobsAction = (query) => {
     try {
       let resp = await fetch(`${BASE_URL_COMPANY_JOBS}${query}`);
       if (resp.ok) {
-        let fetchedJobs = await resp.json();
-        dispatch({ type: ADD_COMPANY_JOBS, payload: fetchedJobs.data });
+        let { data } = await resp.json();
+        dispatch({ type: ADD_COMPANY_JOBS, payload: data });
       } else {
         console.log("error");
       }
